@@ -216,7 +216,7 @@ If you are facing this, please file a support (not a bug) request to our [techni
 
 The testplan.json file looks like follows.
 
-Knowing this structure, you can create testplan.json on your local PC, initialize the environment variable **ALLURE_TESTPLAN_PATH** with path to **testplan.json** and run your tests locally without any additional filters in the same session, if only tests from **testplan.json** will run, then you have the working integration for selective run, otherwise you need to configure the integration or [develop it for your test framework.](https://support.qameta.io)
+Knowing this structure, you can create testplan.json on your local PC, initialize the environment variable **ALLURE_TESTPLAN_PATH** with path to **testplan.json** and run your tests locally without any additional filters in the same session, if only tests from **testplan.json** will run, then you have the working integration for selective run, otherwise you need to configure the integration or [develop it for your test framework.](https://help.qameta.io)
 
 ```json
 
@@ -241,7 +241,7 @@ where
 - **id** is the test ID (Allure ID) from Allure TestOps
 - **selector** is the alternative ID which is equal to test's full path by default.
   - we're planning to extend the information provided in the selector
-  ![if you see this write to support.qameta.io](../../images/test-case-full-path-and-id.png)
+  ![if you see this write to support.qameta.io](./img/test-case-full-path-and-id.png)
 
 ### Saving the test plan to CI, run tests and upload the tests results
 
