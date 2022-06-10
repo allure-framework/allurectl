@@ -209,10 +209,8 @@ Now, let's discuss how this integration works.
    1. If the variable **ALLURE_TESTPLAN_PATH** is available, the integration tries to find the file **testplan.json** using **ALLURE_TESTPLAN_PATH** value
    2. If the file **testplan.json** is successfully read, then the integration instructs the test framework to run only the tests specified in the **testplan.json**.
 
-{{< hint warning >}}
 If CI starts all tests from your project, then either something is not configured on your side or your test framework has no integration with Allure TestOps.
-If you are facing this, please file a support (not a bug) request to our [technical support.](https://support.qameta.io)
-{{< /hint >}}
+If you are facing this, please file a support (not a bug) request to our [technical support.](https://help.qameta.io)
 
 #### testplan.json structure
 
