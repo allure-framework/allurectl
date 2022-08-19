@@ -2,6 +2,10 @@
 
 `allurectl` is the command line wrapper of Allure TestOps' API allowing you to upload the test results in real time from a build job, and managing entities on Allure TestOps side (test cases, launches, projects).
 
+## Tech support
+
+Tech support is done via [TestOps help portal](https://help.qameta.io) only. To register at the help portal please do not use public email services but use your corporate email instead.
+
 ## Supported platforms
 
 - MacOS `*_darwin_amd64`
