@@ -116,16 +116,7 @@ For a CI upload the following additional information will be included into uploa
    - `launch-name` - name of the launch to be created on Allure TestOps side
    - `launch-tags` - tags for the launch to be created on Allure TestOps side
 2. Information about the build job
-   - `job-id` - this is the **internal** Allure TestOps Job's identifier, refer to the Jobs section of your project
-   - `job-uid`- this is the **external** build job ID which is built differently in different CI systems
-   - `job-name` - this is build job's name (label)
-   - `job-url` - this is the URL of a build job you can use to access the build job on a CI system
 3. Information about a job run (showed as CI system icon)
-   - `job-run-id` - the ID of a job run inside Allure TestOps, it is used to run the tests from Allure TestOps side.
-   - `job-run-uid` - the unique ID of a job run from CI, this depends on a CI system logic and is taken from CI environment variables
-   - `job-run-name` - name of a job run
-   - `job-run-url` - URL to access certain job run on a CI system, used in Allure TestOps UI to jump to CI job run.
-   - `job-run-child` - **deprecated parameter**, we keep it for backward compatibility for some clients. **Do not use this parameter**.
 
 ### allurectl upload workflow
 
