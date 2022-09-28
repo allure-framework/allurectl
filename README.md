@@ -8,7 +8,8 @@ Tech support is done via [TestOps help portal](https://help.qameta.io) only. To 
 
 ## Supported platforms
 
-- MacOS `*_darwin_amd64`
+- MacOS on Intel x64 `*_darwin_amd64`
+- MacOS on M1 (arm64)`*_darwin_arm64`
 - 32 bits Linux `*_linux_386`
 - 64 bits Linux `*_linux_amd64`
 - 64 bits arm Linux `*_linux_arm64`
