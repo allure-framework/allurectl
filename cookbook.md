@@ -38,12 +38,29 @@ Before you will be able to use `allurectl`, you need to generate Allure TestOps 
 
 The process of getting of the API token is described in [Allure TestOps documentation](https://docs.qameta.io/allure-testops/integrations/com/allure-token/).
 
+## Passing the parameters to allurectl
+
+### Environment variables
+
+The following environment variables need to be set for easier usage of `allurectl`
+
+| Env variable      | Comment                                                                                     |
+|-------------------|---------------------------------------------------------------------------------------------|
+| ALLURE_ENDPOINT   | URL of Allure TestOps server                                                                |
+| ALLURE_PROJECT_ID | the ID of a project in Allure TestOps, this is the 1st column of Allure TestOps main screen |
+| ALLURE_TOKEN      | the user's personal access token generated in the user's profile in section **API Tokens!** |
+| ALLURE_LAUNCH_NAME| Name of the launch that will be displayed in Allure TestOps UI                              |
+
+### Command line switches
+
+> TBD
+
 ## Test connection
 
-> This needs to be used just for connection check purposes only. Do not use this command in your pipelines to authenticate the test results upload process.
+> This needs to be used for connection check purposes only. Do not use this command in your pipelines to authenticate the test results upload process.
 > The authentication for test results upload routines is done otherwise (see below).
 
-This could be done from your local computer or in a CI pipeline.
+This could be done from your local computer or in a CI pipeline (see remark above).
 
 To check the connection to Allure TestOps instance you can use the following command:
 
@@ -57,15 +74,6 @@ Alternatively, you can use CL switches, but we recommend using the environment v
 
 For more information use the `allurectl --help auth` command.
 
-
-
-There are 2 ways how you can send the parameters to allurectl:
-
-1. Using command line parameters.
-   - This option is good when you need one-time upload for some of your tests.
-2. Using environment variables.
-   - This option is better when you upload your data on regular basis, it is allowing you to store and reuse important parameters, so you don't need to use them in the command line every time.
-
 ## Upload the test results to Allure TestOps
 
 There are 2 options.
@@ -73,97 +81,9 @@ There are 2 options.
 - usage of `watch` routine
 - usage of `upload` routine
 
-### Recommended scenario
+### watch
 
-
-
-
-#### Upload using command line parameters
-
-```bash
-allurectl upload --endpoint https://allure.company.com \
-    --token 55555555-5555-5555-5555-555555555555 \
-    --project-id 100 \
-    --launch-name "Local PC manual launch 2200-12-31" \
-    path/to/allure-results
-```
-
-#### Upload using environment variables
-
-```bash
-# Define environment variables
-export ALLURE_ENDPOINT=https://demo.testops.cloud
-export ALLURE_TOKEN=55555555-5555-5555-5555-555555555555
-export ALLURE_PROJECT_ID=100
-
-# Run upload process somewhere
-allurectl upload --launch-name "Local PC manual launch 2200-12-31" path/to/allure-results
-```
-
-#### What will happen
-
-Now, what will happen if you used one of the options above:
-
-1. A new launch with the name `Local PC manual launch 2200-12-31` will be created on Allure TestOps side
-2. A new session for test results upload will be created
-3. Test results from `path/to/allure-results` folder will be sent to Allure TestOps' launch `Local PC manual launch 2200-12-31` in scope of the created session.
-4. Session will be closed.
-5. Launch will remain open until manually closed or closed base on the automatic closure rule defined for the project `100`.
-
-### CI mode
-
-Each CI system has its own set of environment variables identifying it. If allurectl detects such variables, then the launch is considered as a launch from an CI system.
-
-For a CI upload the following additional information will be included into upload and available in Allure TestOps:
-
-1. Information about a launch
-   - `launch-name` - name of the launch to be created on Allure TestOps side
-   - `launch-tags` - tags for the launch to be created on Allure TestOps side
-2. Information about the build job
-3. Information about a job run (showed as CI system icon)
-
-### allurectl upload workflow
-
-#### The applicability
-
-Use **allurectl** with the upload command **after** all your tests run. We do not recommend using allurectl upload as background process.
-
-{{< hint warning >}}
-We recommend the usage of allurectl **watch** to send the data from CI. Use upload only in case watch is not acceptable for you.
-{{< /hint >}}
-
-#### The workflow (also works for watch command - see below)
-
-Here is what happen when you execute **allurectl** with **upload** command.
-
-1. Allure TestOps creates a new launch based on **launch-name** and **launch-tags** received from **allurectl**.
-2. Based on the parameters **job-uid**, **job-name**, **job-url** received from **allurectl** Allure TestOps either selects exiting job with **job-uid** or creates a new one for **job-uid** and uses **job-name** and **job-url** for a newly created Job.
-3. Based on received **job-run-uid**, **job-run-name** and **job-run-url** Allure TestOps searches for existing job run with **job-run-uid** and selects it if such job run found, or it creates a new job run with **job-run-uid** and uses **job-run-name** and **job-run-url** for the creation.
-   - all the parameters from build job run from CI (e.g. parameters of GitLab pipeline or Jenkins job) are linked to **job-run-uid** in Allure TestOps.
-4. Allure TestOps creates new **session**, new session is linked to **job-run**.
-   - allurectl sends all environment variables to the session
-   - allurectl sends all the test results to the session 
-
-Job and job run information allows us the following
-
-1. To understand what are the tests that were executed and what are the jobs where these test were executed.
-2. Rerun failed tests for we exactly know what are the tests executed, what was the job run where these tests were executes and what are the parameters used to execute the tests in a certain job.
-3. We can merge several job runs into one launch. To do so, you need to pass hob-run-uid from previous (initial) run to the current (e.g. to child job) job run.
-
-#### The settings
-
-The following environment variables need to be set for easier usage of `allurectl`
-
-| Env variable      | Comment                                                                                     |
-|-------------------|---------------------------------------------------------------------------------------------|
-| ALLURE_ENDPOINT   | URL of Allure TestOps server                                                                |
-| ALLURE_PROJECT_ID | the ID of a project in Allure TestOps, this is the 1st column of Allure TestOps main screen |
-| ALLURE_TOKEN      | the user's personal access token generated in the user's profile in section **API Tokens!** |
-| ALLURE_LAUNCH_NAME| Name of the launch that will be displayed in Allure TestOps UI                              |
-
-Please refer to your [CI settings details]({{< relref "../integrations/ci-servers#the-workflow" >}}) to set up allurectl environments variables.
-
-### allurectl watch workflow
+`watch` is main recommended workflow for test results upload.
 
 Generally, **allurectl watch** does the same things which **allurectl upload** does with one important difference - **watch** command allows sending the test result in real time, i.e. you don't need to wait till all the tests are completed and that will decrease the workload and hasten the test results processing on Allure TestOps side.
 
@@ -193,6 +113,43 @@ export ALLURE_RESULTS=path/to/allure-results
 ...
 allurectl watch -- ./gradlew clean test
 ```
+
+
+### upload
+
+> We recommend using allurectl **watch** to send the data from CI. Use upload only in case `watch` is not acceptable for you.
+
+`upload` workflow is only applicable when the test results are available after all tests execution (there are such test frameworks, not many but they exist) or you need to upload a directory with the test results you have.
+
+Use **allurectl** with the `upload` command **after** all your tests run. We do not recommend using allurectl upload as background process.
+
+#### Upload using command line parameters
+
+```bash
+allurectl upload --endpoint https://allure.company.com \
+    --token 55555555-5555-5555-5555-555555555555 \
+    --project-id 100 \
+    --launch-name "Local PC manual launch 2200-12-31" \
+    path/to/allure-results
+```
+
+#### Upload using environment variables
+
+```bash
+# Define environment variables
+export ALLURE_ENDPOINT=https://demo.testops.cloud
+export ALLURE_TOKEN=55555555-5555-5555-5555-555555555555
+export ALLURE_PROJECT_ID=100
+
+# Run upload process somewhere
+allurectl upload --launch-name "Local PC manual launch 2200-12-31" path/to/allure-results
+```
+
+
+Please refer to your [CI settings details]({{< relref "../integrations/ci-servers#the-workflow" >}}) to set up allurectl environments variables.
+
+### allurectl watch workflow
+
 
 ## Tests rerun and selective run with allurectl
 
@@ -254,3 +211,48 @@ In all CIs we have the same sequence:
    - this is done using the command `allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}`
 4. allurectl executes your tests and makes the index list of the test results files and send the tests results files to Allure TestOps using **watch** command
    - `allurectl watch -- ./gradlew clean test`
+
+## Getting Allure TestOps launch information
+
+### The task
+
+We want to get the information on a launch created after the execution of `watch` or `upload` workflows to pass the information to chat, email message etc.
+
+### How to
+
+The information on the entities created on Allure TestOps side can be placed (and subsequently used) by invoking of the following sequence of the commands:
+
+```shell
+#define env vars
+export ALLURE_ENDPOINT=https://demo.testops.cloud
+export ALLURE_TOKEN=<toke>
+export ALLURE_PROJECT_ID=<ID>
+export ALLURE_LAUNCH_NAME="Hello, world"
+export ALLURE_RESULTS=path/to/allure-results
+# exec the tests
+allurectl watch -- ./gradlew clean test
+
+export $(allurectl job-run env)
+# this will just show the list of all ENV vars related to allurectl execution
+printenv | grep ALLURE_ 
+```
+
+`printenv | grep ALLURE_ ` will result in the following output
+
+```shell
+ALLURE_ENDPOINT=https://demo.testops.cloud
+ALLURE_LAUNCH_ID=11111
+ALLURE_RESULTS=./allure-results
+ALLURE_JOB_RUN_ID=12345
+ALLURE_LAUNCH_TAGS=master, gitlab, demo, pytest, skip-live-doc, ignore
+ALLURE_TOKEN=[MASKED]
+ALLURE_TESTPLAN_PATH=./testplan.json
+ALLURE_LAUNCH_NAME=allure-pytest - 1ea04f48
+ALLURE_JOB_RUN_URL=https://demo.testops.cloud/jobrun/14433
+ALLURE_LAUNCH_URL=https://demo.testops.cloud/launch/31897
+ALLURE_PROJECT_ID=433
+```
+
+To provide the link to the created launch you can use either `ALLURE_JOB_RUN_URL` or `ALLURE_LAUNCH_URL`.
+
+`ALLURE_JOB_RUN_URL` is an entity (there could be N job-runs) inside a launch, so if you merge two or more launches in one, then `ALLURE_JOB_RUN_URL` will always point to a correct launch.
