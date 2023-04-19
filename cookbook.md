@@ -220,7 +220,7 @@ We want to get the information on a launch created after the execution of `watch
 
 ### How to
 
-The information on the entities created on Allure TestOps side can be placed (and subsequently used) by invoking of the following sequence of the commands:
+The information on the entities created on Allure TestOps side can be placed to the environment variables and then used by invoking of the following sequence of the commands:
 
 ```shell
 #define env vars
