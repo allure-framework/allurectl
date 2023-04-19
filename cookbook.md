@@ -27,15 +27,20 @@ Before you will be able to test the connection, you need to generate Allure Test
 
 ### Checking the connection
 
+> This needs to be used just for connection check purposes. Do not use this command in your pipelines.
+> The authentication for test results upload routines is done otherwise (see below).
+
 This could be done from your local computer or in a CI pipeline.
 
 To check the connection to Allure TestOps instance you can use the following command:
 
 ``` bash
-$ allurectl auth login --endpoint <allure-ee-instance-endpoint> --token <access-token>
+export ALLURE_TOKEN=<API-TOKEN>
+export ALLURE_ENDPOINT=https://demo.testops.cloud
+$ allurectl auth login
 ```
 
-Alternatively, you can use environment variables
+Alternatively, you can use CL switches, but we recommend using the environment variables.
 
 For more information use the `allurectl --help auth` command.
 
@@ -46,9 +51,17 @@ There are two modes:
 1. Non-CI mode
 2. CI mode
 
+As **allurectl** starts from the command line it checks whether CI server specific variables are defined.
+
 ### Non-CI mode
 
-After **allurectl** started it checks whether CI specific variables are defined and if they are absent, the data upload is considered as manual upload from local PC.
+If CI server specific variables are absent, the data upload is considered as manual upload from local PC (i.e. not from a CI pipeline).
+
+Local upload does not allow using of launch parameters, job-run parameters.
+
+### CI mode
+
+If CI server specific variables are present, the data upload is considered as work in CI pipeline's context and this allows using of launch parameters, job-run parameters.
 
 There are 2 ways how you can send the parameters to allurectl:
 
@@ -56,6 +69,9 @@ There are 2 ways how you can send the parameters to allurectl:
    - This option is good when you need one-time upload for some of your tests.
 2. Using environment variables.
    - This option is better when you upload your data on regular basis, it is allowing you to store and reuse important parameters, so you don't need to use them in the command line every time.
+
+## Getting 
+
 
 #### Upload using command line parameters
 
@@ -71,7 +87,7 @@ allurectl upload --endpoint https://allure.company.com \
 
 ```bash
 # Define environment variables
-export ALLURE_ENDPOINT=https://allure.company.com
+export ALLURE_ENDPOINT=https://demo.testops.cloud
 export ALLURE_TOKEN=55555555-5555-5555-5555-555555555555
 export ALLURE_PROJECT_ID=100
 
