@@ -9,25 +9,38 @@ In example below we download latest release linux application for linux OS with 
 ```bash
 wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
 chmod +x ./allurectl
-
 ```
+
+You need to select the binary file suitable for your OS and CPU architecture from [the available options](https://github.com/allure-framework/allurectl/releases/latest).
+
+## allurectl working modes
+
+There are two modes:
+
+1. Non-CI mode
+2. CI mode
+
+After **allurectl** starts from the command line, it checks whether CI server specific variables are present in its context.
+
+### Non-CI mode
+
+If CI server specific variables are absent, the data upload is considered as manual upload from local PC (i.e. not from a CI pipeline).
+
+Local upload does not allow using of launch parameters, job-run parameters.
+
+### CI mode
+
+If CI server specific variables are present, the data upload is considered as work in CI pipeline's context and this allows using of launch parameters, job-run parameters.
+
+## Allure TestOps API token
+
+Before you will be able to use `allurectl`, you need to generate Allure TestOps secret token in your profile, so `allurectl` will be able to be authenticated on Allure TestOps side.
+
+The process of getting of the API token is described in [Allure TestOps documentation](https://docs.qameta.io/allure-testops/integrations/com/allure-token/).
 
 ## Test connection
 
-### Allure TestOps API token
-
-Before you will be able to test the connection, you need to generate Allure TestOps secret token in your profile, so `allurectl` will be properly authenticated on Allure TestOps side.
-
-1. Go to Allure TestOps
-2. Click your avatar to invoke user menu
-3. Proceed to **Your Profile**
-4. Go to the section **API Tokens!**
-5. Generate a new one and name it so you understand where it is used.
-6. Copy Token.
-
-### Checking the connection
-
-> This needs to be used just for connection check purposes. Do not use this command in your pipelines.
+> This needs to be used just for connection check purposes only. Do not use this command in your pipelines to authenticate the test results upload process.
 > The authentication for test results upload routines is done otherwise (see below).
 
 This could be done from your local computer or in a CI pipeline.
@@ -44,24 +57,7 @@ Alternatively, you can use CL switches, but we recommend using the environment v
 
 For more information use the `allurectl --help auth` command.
 
-## allurectl working modes
 
-There are two modes:
-
-1. Non-CI mode
-2. CI mode
-
-As **allurectl** starts from the command line it checks whether CI server specific variables are defined.
-
-### Non-CI mode
-
-If CI server specific variables are absent, the data upload is considered as manual upload from local PC (i.e. not from a CI pipeline).
-
-Local upload does not allow using of launch parameters, job-run parameters.
-
-### CI mode
-
-If CI server specific variables are present, the data upload is considered as work in CI pipeline's context and this allows using of launch parameters, job-run parameters.
 
 There are 2 ways how you can send the parameters to allurectl:
 
@@ -70,7 +66,16 @@ There are 2 ways how you can send the parameters to allurectl:
 2. Using environment variables.
    - This option is better when you upload your data on regular basis, it is allowing you to store and reuse important parameters, so you don't need to use them in the command line every time.
 
-## Getting 
+## Upload the test results to Allure TestOps
+
+There are 2 options.
+
+- usage of `watch` routine
+- usage of `upload` routine
+
+### Recommended scenario
+
+
 
 
 #### Upload using command line parameters
