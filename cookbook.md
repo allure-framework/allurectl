@@ -214,6 +214,8 @@ In all CIs we have the same sequence:
 We want to get the information on a launch created after the execution of `watch` or `upload` workflows to pass the information to chat, email message etc.
 
 ### How to
+    
+> This works in CI mode only    
 
 The information on the entities created on Allure TestOps side can be placed to the environment variables and then used by invoking of the following sequence of the commands:
 
