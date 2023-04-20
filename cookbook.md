@@ -114,7 +114,6 @@ export ALLURE_RESULTS=path/to/allure-results
 allurectl watch -- ./gradlew clean test
 ```
 
-
 ### upload
 
 > We recommend using allurectl **watch** to send the data from CI. Use upload only in case `watch` is not acceptable for you.
@@ -145,11 +144,7 @@ export ALLURE_PROJECT_ID=100
 allurectl upload --launch-name "Local PC manual launch 2200-12-31" path/to/allure-results
 ```
 
-
 Please refer to your [CI settings details]({{< relref "../integrations/ci-servers#the-workflow" >}}) to set up allurectl environments variables.
-
-### allurectl watch workflow
-
 
 ## Tests rerun and selective run with allurectl
 
