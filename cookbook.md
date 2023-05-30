@@ -256,3 +256,27 @@ ALLURE_PROJECT_ID=433
 To provide the link to the created launch you can use either `ALLURE_JOB_RUN_URL` or `ALLURE_LAUNCH_URL`.
 
 `ALLURE_JOB_RUN_URL` is an entity (there could be N job-runs) inside a launch, so if you merge two or more launches in one, then `ALLURE_JOB_RUN_URL` will always point to a correct launch.
+
+## Creating a launch based on test plan created in Allure TestOps project
+
+### The task
+
+End user wants to create a test plan on Allure TestOps side, and then execute only the tests cases by referencing the test plan in the pipeline.
+
+### How to
+
+The task can be done by creation of `testplan.json` file before executing of `allurectl watch`
+
+```shell
+export ALLURE_TOKEN=<token>
+export ALLURE_ENDPOINT=https://demo.testops.cloud
+export ALLURE_PROJECT_ID=111
+export ALLURE_LAUNCH_NAME="$(date "+%Y-%m-%d %H%M%S") executing test plan"
+export ALLURE_LAUNCH_TAGS="watch, testplan"
+export ALLURE_RESULTS="allure-results"
+export ALLURE_TESTPLAN_PATH="./testplan.json"
+# create tetsplan.json based on AQL for test cases "testPlan=222" where 222 is the ID of a test plan
+./allurectl test-case plan -q "testPlan=222" --output-file ${ALLURE_TESTPLAN_PATH}
+# execute test cases based on testplan.json
+./allurectl watch -- [tests_execution_command]
+```
