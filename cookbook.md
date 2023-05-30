@@ -114,7 +114,6 @@ export ALLURE_RESULTS=path/to/allure-results
 allurectl watch -- ./gradlew clean test
 ```
 
-
 ### upload
 
 > We recommend using allurectl **watch** to send the data from CI. Use upload only in case `watch` is not acceptable for you.
@@ -145,11 +144,7 @@ export ALLURE_PROJECT_ID=100
 allurectl upload --launch-name "Local PC manual launch 2200-12-31" path/to/allure-results
 ```
 
-
 Please refer to your [CI settings details]({{< relref "../integrations/ci-servers#the-workflow" >}}) to set up allurectl environments variables.
-
-### allurectl watch workflow
-
 
 ## Tests rerun and selective run with allurectl
 
@@ -219,8 +214,10 @@ In all CIs we have the same sequence:
 We want to get the information on a launch created after the execution of `watch` or `upload` workflows to pass the information to chat, email message etc.
 
 ### How to
+    
+> This works in CI mode only    
 
-The information on the entities created on Allure TestOps side can be placed (and subsequently used) by invoking of the following sequence of the commands:
+The information on the entities created on Allure TestOps side can be placed to the environment variables and then used by invoking of the following sequence of the commands:
 
 ```shell
 #define env vars
@@ -256,6 +253,7 @@ ALLURE_PROJECT_ID=433
 To provide the link to the created launch you can use either `ALLURE_JOB_RUN_URL` or `ALLURE_LAUNCH_URL`.
 
 `ALLURE_JOB_RUN_URL` is an entity (there could be N job-runs) inside a launch, so if you merge two or more launches in one, then `ALLURE_JOB_RUN_URL` will always point to a correct launch.
+
 
 ## Creating a launch based on test plan created in Allure TestOps project
 
