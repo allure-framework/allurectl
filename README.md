@@ -4,7 +4,13 @@
 
 ## Tech support
 
-Tech support is done via [TestOps help portal](https://help.qameta.io) only. To register at the help portal please do not use public email services, but use your corporate email instead.
+### enhancements suggestions
+
+Enhancements suggestions are done via [TestOps help portal](https://help.qameta.io) only. To register at the help portal please do not use public email services, but use your corporate email instead.
+
+### Bug reports
+
+Tech support (enhancements suggestions, bug reports) is done via [TestOps help portal](https://help.qameta.io) only. To register at the help portal please do not use public email services, but use your corporate email instead.
 
 ## Supported platforms
 
@@ -17,9 +23,14 @@ Tech support is done via [TestOps help portal](https://help.qameta.io) only. To 
 - 64 bits Windows `*_windows_amd64.exe`
 - 64 bits arm Windows `*_windows_arm64.exe`
 
+## Documentation
+
+allurectl documentation is a part of Allure Testops documentation and [can be found here](https://docs.qameta.io/allure-testops/ecosystem/allurectl/)
+
 ## Usage examples - the cookbook
 
-allurectl usage examples can be found in the [cookbook](./cookbook.md)
+allurectl real life usage examples can be found in the [cookbook](https://docs.qameta.io/allure-testops/ecosystem/allurectl/#allurectl-cookbook)
 
+## Releases
 
 [GitHub]: https://github.com/allure-framework/allurectl/releases
