@@ -6,11 +6,11 @@
 
 ### enhancements suggestions
 
-Enhancements suggestions are done via [TestOps help portal](https://help.qameta.io) only. To register at the help portal please do not use public email services, but use your corporate email instead.
+Enhancements suggestions are done via [TestOps help portal](https://help.qameta.io). To register at the help portal please do not use public email services, but use your corporate email instead.
 
 ### Bug reports
 
-Tech support (enhancements suggestions, bug reports) is done via [TestOps help portal](https://help.qameta.io) only. To register at the help portal please do not use public email services, but use your corporate email instead.
+Bug reports are subitted via [TestOps help portal](https://help.qameta.io). To register at the help portal please do not use public email services, but use your corporate email instead.
 
 ## Supported platforms
 
