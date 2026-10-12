@@ -1,0 +1,137 @@
+QAMETA SOFTWARE INC
+END USER LICENSE AGREEMENT
+
+Version 1.0
+
+IMPORTANT: READ CAREFULLY BEFORE INSTALLING OR USING THE SOFTWARE.
+
+This End User License Agreement ("Agreement") is a legal agreement between 
+you, either an individual or a legal entity ("User"), and Qameta Software Inc. 
+("Qameta"), governing your use of the following software products 
+(collectively, "Software"):
+
+  • Allure TestOps Plugin for TeamCity
+  • Allure TestOps Plugin for Bamboo
+  • Allure TestOps Plugin for Jenkins
+  • allurectl (command-line tool)
+  • Allure TestOps Plugin for IntelliJ IDEA
+  • Allure TestOps Plugin for Rider
+  • Allure TestOps Extension for Visual Studio Code
+  • Allure TestOps Migration Tool
+  • Allure TestOps Plugin for Allure TestOps for Bamboo
+  • Allure TestOps Plugin for Allure TestOps for Jira
+  • Allure TestOps Plugin for Allure TestOps for Jira Cloud
+
+
+By downloading, installing, copying, or otherwise using the Software, you 
+accept the terms of this Agreement. If you do not agree, do not install or 
+use the Software.
+
+1. GRANT OF LICENSE
+
+   Subject to the terms of this Agreement, Qameta grants you a limited, 
+   personal, non-exclusive, non-transferable, royalty-free license to use 
+   the Software solely in connection with Allure TestOps or other software 
+   products provided by Qameta Software Inc.
+
+2. RESTRICTIONS
+
+   You may NOT:
+
+   a) Sell, sublicense, rent, lease, lend, or otherwise transfer the Software 
+      or any rights therein to any third party;
+   b) Reverse engineer, decompile, disassemble, or otherwise attempt to derive 
+      the source code of the Software, except to the extent permitted by 
+      applicable law;
+   c) Modify, adapt, translate, or create derivative works based on the 
+      Software;
+   d) Use the Software independently of Allure TestOps or other software 
+      products offered by Qameta Software Inc;
+   e) Remove, alter, or obscure any proprietary notices, labels, or marks on 
+      or within the Software.
+
+3. PERMITTED COMMERCIAL USE
+
+   You MAY use the Software free of charge for any commercial purpose, 
+   including providing services to third parties (added value), provided that:
+
+   a) Such use occurs solely in conjunction with Allure TestOps or other 
+      Qameta Software Inc products;
+   b) You do not sell, sublicense, or redistribute the Software itself as a 
+      standalone product or as part of a competing product.
+
+4. OWNERSHIP AND INTELLECTUAL PROPERTY
+
+   The Software is and remains the exclusive property of Qameta Software Inc. 
+   This Agreement does not convey to you any ownership interest in or to the 
+   Software. All rights not expressly granted herein are reserved by Qameta 
+   Software Inc. The license granted under this Agreement is non-transferable 
+   and may not be assigned to any third party.
+
+5. SOURCE CODE
+
+   The Software is distributed in binary or compiled form only. The source 
+   code is proprietary and confidential to Qameta Software Inc. No license 
+   to the source code is granted under this Agreement.
+
+6. NO LICENSE REQUIRED
+
+   No separate license key or registration is required to use the Software. 
+   Your use of the Software constitutes your acceptance of the terms of this 
+   Agreement.
+
+7. DISCLAIMER OF WARRANTIES
+
+   THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+   IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, 
+   FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. QAMETA SOFTWARE INC 
+   DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE OR UNINTERRUPTED.
+   The Software is provided without any obligation on the part of 
+   Qameta Software Inc. to provide any support, updates, upgrades, error 
+   correction, troubleshooting, technical assistance, or any other services 
+   in connection with the Software.
+   Qameta Software Inc. shall have no obligation to assist with the installation,
+   operation, maintenance, repair, modification, or use of the Software, or to 
+   investigate, diagnose, correct, or resolve any errors, defects, compatibility 
+   issues, interruptions, or other problems relating to the Software.
+   Any support, maintenance, or other services, if provided, shall be subject 
+   to a separate written agreement.
+
+8. LIMITATION OF LIABILITY
+
+   TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL 
+   QAMETA SOFTWARE INC BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, 
+   PUNITIVE, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH 
+   THIS AGREEMENT OR THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF QAMETA 
+   SOFTWARE INC HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+   IF DESPITE THE TERMS OF THIS AGREEMENT, QAMETA SOFTWARE IS DEEMED LIABLE, 
+   ITS TOTAL AGGREGATE LIABILITY FOR ANY CLAIMS, ARISING OUT OF OR RELATING TO 
+   THIS AGREEMENT SHALL NOT EXCEED THE GREATER OF $100. THIS LIMITATION APPLIES 
+   WHETHER AN ACTION IS IN CONTRACT OR TORT AND REGARDLESS OF THE THEORY OF 
+   LIABILITY.
+
+9. TERM AND TERMINATION
+
+   This Agreement is effective upon your first use of the Software and 
+   continues until terminated. Qameta Software Inc. may terminate this Agreement 
+   immediately upon written notice if you breach any term hereof. Upon 
+   termination, you must cease all use of the Software and destroy all copies 
+   in your possession.
+
+10. GOVERNING LAW
+
+    This Agreement shall be governed by and construed in accordance with the 
+    laws of the State of Delaware, United States, without regard to its conflict 
+    of law provisions.
+
+11. ENTIRE AGREEMENT
+
+    This Agreement constitutes the entire agreement between the parties with 
+    respect to the Software and supersedes all prior understandings, agreements, 
+    or representations.
+
+12. CONTACT
+
+    Qameta Software Inc
+    legal@qameta.io
+    https://qameta.io
