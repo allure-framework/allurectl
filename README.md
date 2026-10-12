@@ -31,6 +31,11 @@ allurectl documentation is a part of Allure Testops documentation and [can be fo
 
 allurectl real life usage examples can be found in the [cookbook](https://docs.qameta.io/allure-testops/ecosystem/allurectl/#allurectl-cookbook)
 
+## Information for AI agents
+
+AGENTS.md can be found [here.](/AGENTS.md)
+
+
 ## Releases
 
 [GitHub]: https://github.com/allure-framework/allurectl/releases
